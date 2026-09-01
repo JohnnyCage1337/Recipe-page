@@ -1,0 +1,37 @@
+/* ----- RESET DEFAULT BROWSER STYLES ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+/* ----- LOAD FONTS FROM STATIC FILES ----- */
+
+@font-face {
+  font-family: "Outfit";
+  src: url(assets/fonts/outfit/Outfit-VariableFont_wght.ttf) format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "YoungSerif";
+  src: url(assets/fonts/young-serif/YoungSerif-Regular.ttf) format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* CUSTOM CSS STYLES */
+:root {
+  --color-rose-800: rgb(122, 40, 78);
+  --color-rose-50: rgb(255, 247, 251);
+
+  --color-stone-900: rgb(49, 46, 44);
+  --color-stone-600: rgb(95, 86, 77);
+  --color-stone-150: rgb(227, 221, 215);
+  --color-stone-100: rgb(243, 229, 215);
+}
