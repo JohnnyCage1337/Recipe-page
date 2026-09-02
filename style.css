@@ -34,4 +34,101 @@ img {
   --color-stone-600: rgb(95, 86, 77);
   --color-stone-150: rgb(227, 221, 215);
   --color-stone-100: rgb(243, 229, 215);
+
+  --color-brown-800: rgb(133, 70, 50);
+
+  --color-white: rgb(255, 255, 255);
+
+  --text-present-1: 400 2.5rem/1 "YoungSerif";
+  --text-present-2: 400 1.75rem/1 "YoungSerif";
+  --text-present-3: 600 1.25rem/1 "YoungSerif";
+  --text-present-4: 400 1rem/1.5 "Outfit";
+  --text-present-5: 700 1rem/1.5 "Outfit";
+
+  --sp-100: 0.5rem;
+  --sp-150: 0.75rem;
+  --sp-200: 1rem;
+  --sp-300: 1.5rem;
+  --sp-400: 2rem;
+  --sp-500: 2.5rem;
+  --sp-600: 3rem;
+  --sp-1600: 8rem;
+}
+
+body {
+  background-color: var(--color-stone-100);
+  color: var(--color-brown-800);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  max-width: 46rem;
+  margin: var(--sp-1600) 0;
+  background-color: var(--color-white);
+  padding: var(--sp-500);
+  border-radius: var(--sp-300);
+}
+
+.image {
+  height: 18.75rem;
+  width: auto;
+  margin-bottom: var(--sp-500);
+  border-radius: var(--sp-150);
+}
+
+.title {
+  font: var(--text-present-1);
+  margin-bottom: var(--sp-300);
+}
+.omelette-desc {
+  font: var(--text-present-4);
+  margin-bottom: var(--sp-400);
+}
+
+.preparation_container {
+  display: flex;
+  flex-direction: column;
+
+  padding: var(--sp-300);
+  border-radius: var(--sp-150);
+  font: var(--text-present-4);
+
+  background-color: var(--color-rose-50);
+}
+
+.preparation_container__heading {
+  font: var(--text-present-3);
+  margin-bottom: var(--sp-200);
+}
+
+.preparation_container__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--sp-100);
+}
+
+.preparation_container__list__term::before {
+  content: "•";
+  font-weight: bold;
+  margin-right: var(--sp-200);
+}
+
+.preparation_container__list__term::after {
+  content: ":";
+  font-weight: bold;
+}
+
+.preparation_container__list__term {
+  font-weight: bold;
+  display: inline;
+}
+
+.preparation_container__list__def {
+  display: inline;
 }
