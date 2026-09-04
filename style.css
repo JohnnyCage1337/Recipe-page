@@ -21,7 +21,7 @@ img {
 @font-face {
   font-family: "YoungSerif";
   src: url(assets/fonts/young-serif/YoungSerif-Regular.ttf) format("truetype");
-  font-weight: 100 900;
+  font-weight: 400 400;
   font-style: normal;
 }
 
@@ -39,9 +39,9 @@ img {
 
   --color-white: rgb(255, 255, 255);
 
-  --text-present-1: 400 2.5rem/1 "YoungSerif";
-  --text-present-2: 400 1.75rem/1 "YoungSerif";
-  --text-present-3: 600 1.25rem/1 "YoungSerif";
+  --text-present-1: 400 2.5rem/1 "Youngserif";
+  --text-present-2: 400 1.75rem/1 "Youngserif";
+  --text-present-3: 600 1.25rem/1 "Outfit";
   --text-present-4: 400 1rem/1.5 "Outfit";
   --text-present-5: 700 1rem/1.5 "Outfit";
 
@@ -56,39 +56,51 @@ img {
 }
 
 body {
+  /* DARK THEMEE ZMIEN */
   background-color: var(--color-stone-100);
-  color: var(--color-brown-800);
+  /* background-color: hsl(0, 0%, 20%); */
+  color: var(--color-stone-600);
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+
+  font: var(--text-present-4);
 }
 
 main {
   width: 100%;
   max-width: 46rem;
-  margin: var(--sp-1600) 0;
+  /* DARK THEME ZMIEN */
   background-color: var(--color-white);
+  /* background-color: hsl(0, 0%, 50%); */
   padding: var(--sp-500);
   border-radius: var(--sp-300);
+  margin-top: var(--sp-1600);
+  margin-bottom: var(--sp-1600);
+  flex-grow: 1;
+}
+
+main > * + * {
+  margin-top: var(--sp-400);
 }
 
 .image {
   height: 18.75rem;
   width: auto;
-  margin-bottom: var(--sp-500);
   border-radius: var(--sp-150);
 }
 
 .title {
   font: var(--text-present-1);
-  margin-bottom: var(--sp-300);
+  color: var(--color-stone-900);
+  margin-top: var(--sp-500);
 }
 .omelette-desc {
   font: var(--text-present-4);
-  margin-bottom: var(--sp-400);
+  margin-top: var(--sp-300);
 }
 
 .preparation_container {
@@ -105,6 +117,7 @@ main {
 .preparation_container__heading {
   font: var(--text-present-3);
   margin-bottom: var(--sp-200);
+  color: var(--color-rose-800);
 }
 
 .preparation_container__list {
@@ -116,7 +129,9 @@ main {
 .preparation_container__list__term::before {
   content: "•";
   font-weight: bold;
-  margin-right: var(--sp-200);
+  margin-right: var(--sp-300);
+  margin-left: var(--sp-100);
+  color: var(--color-rose-800);
 }
 
 .preparation_container__list__term::after {
@@ -131,4 +146,131 @@ main {
 
 .preparation_container__list__def {
   display: inline;
+}
+
+/* MAIN SECTIONS HEADING  */
+.ingredients_container__heading,
+.instructions_container__heading,
+.nutrition_container__heading {
+  font: var(--text-present-2);
+  margin-bottom: var(--sp-300);
+  color: var(--color-brown-800);
+}
+
+.ingredients_container__list__item,
+.instructions_container__list__item {
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+.instructions_container__list__item:not(:last-child) {
+  margin-bottom: var(--sp-100);
+}
+
+.ingredients_container__list__item:not(:last-child) {
+  margin-bottom: var(--sp-100);
+}
+
+.instructions_container {
+  margin-top: var(--sp-400);
+}
+
+.instructions_container__list {
+  list-style-type: none;
+  padding-left: 0;
+  counter-reset: instructions-counter;
+}
+/* WSPÓLNE STYLE DLA ELEMENTÓW OBU LIST */
+.ingredients_container__list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-300); /* UJEDNOLICONY ODSTĘP! */
+  padding-left: var(--sp-100); /* Wspólne wcięcie od lewej */
+}
+
+/* OSOBNE STYLE DLA ZNACZNIKA LISTY SKŁADNIKÓW */
+.ingredients_container__list__item::before {
+  content: "•";
+  font-weight: bold;
+  color: var(--color-brown-800);
+}
+
+/* OSOBNE STYLE DLA ZNACZNIKA LISTY INSTRUKCJI */
+.instructions_container__list__item {
+  counter-increment: instructions-counter; /* To musi zostać tutaj */
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.instructions_container__list__item::before {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  content: counter(instructions-counter) ".";
+  font-weight: bold;
+  color: var(--color-brown-800);
+  /* Zauważ, że usunęliśmy stąd margin-right! */
+}
+
+.instructions_container__list__item b {
+  color: var(--color-brown-800);
+}
+.instructions_container__list__item b::after {
+  content: ":";
+  font-weight: bold;
+}
+
+.nutrition_container__list__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-stone-150);
+  padding: var(--sp-150) var(--sp-400);
+}
+
+.nutrition_container__list__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.nutrition_container__list__row:first-child {
+  padding-top: 0px;
+}
+
+.nutrition_container__list__term,
+.nutrition_container__list__def {
+  /* width: 50%; */
+  flex: 1 0 0;
+}
+
+.nutrition_container__list__term {
+}
+
+.nutrition_container__list__def {
+  font-weight: bold;
+  margin-left: var(--sp-200);
+}
+
+.nutrition_container__list__def abbr {
+  text-decoration: none;
+}
+
+.nutrition_container__desc {
+  margin: var(--sp-300) 0;
+  font: var(--text-present-4);
+}
+
+.change-topic-line {
+  border: none;
+  height: 1px;
+  background-color: var(--color-stone-150);
+}
+
+.attribution {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.attribution a {
+  color: var(--color-rose-800);
 }
