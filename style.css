@@ -56,41 +56,37 @@ img {
 }
 
 body {
-  /* DARK THEMEE ZMIEN */
   background-color: var(--color-stone-100);
-  /* background-color: hsl(0, 0%, 20%); */
   color: var(--color-stone-600);
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 
   font: var(--text-present-4);
+  padding: var(--sp-1600) var(--sp-600);
 }
 
 main {
   width: 100%;
   max-width: 46rem;
-  /* DARK THEME ZMIEN */
   background-color: var(--color-white);
-  /* background-color: hsl(0, 0%, 50%); */
   padding: var(--sp-500);
   border-radius: var(--sp-300);
-  margin-top: var(--sp-1600);
-  margin-bottom: var(--sp-1600);
   flex-grow: 1;
 }
 
-main > * + * {
+.recipe_container > * + * {
   margin-top: var(--sp-400);
 }
 
 .image {
   height: 18.75rem;
-  width: auto;
+  width: 100%;
   border-radius: var(--sp-150);
+  object-fit: cover;
+  object-position: center;
 }
 
 .title {
@@ -127,10 +123,11 @@ main > * + * {
 }
 
 .preparation_container__list__term::before {
+  position: absolute;
+  left: var(--sp-100);
+  top: 0;
   content: "•";
   font-weight: bold;
-  margin-right: var(--sp-300);
-  margin-left: var(--sp-100);
   color: var(--color-rose-800);
 }
 
@@ -148,7 +145,11 @@ main > * + * {
   display: inline;
 }
 
-/* MAIN SECTIONS HEADING  */
+.preparation_container__list__row {
+  position: relative;
+  padding-left: 2rem;
+}
+
 .ingredients_container__heading,
 .instructions_container__heading,
 .nutrition_container__heading {
@@ -180,26 +181,23 @@ main > * + * {
   padding-left: 0;
   counter-reset: instructions-counter;
 }
-/* WSPÓLNE STYLE DLA ELEMENTÓW OBU LIST */
 .ingredients_container__list__item {
   display: flex;
   align-items: flex-start;
-  gap: var(--sp-300); /* UJEDNOLICONY ODSTĘP! */
-  padding-left: var(--sp-100); /* Wspólne wcięcie od lewej */
+  gap: var(--sp-300);
+  padding-left: var(--sp-100);
 }
 
-/* OSOBNE STYLE DLA ZNACZNIKA LISTY SKŁADNIKÓW */
 .ingredients_container__list__item::before {
   content: "•";
   font-weight: bold;
   color: var(--color-brown-800);
 }
 
-/* OSOBNE STYLE DLA ZNACZNIKA LISTY INSTRUKCJI */
 .instructions_container__list__item {
-  counter-increment: instructions-counter; /* To musi zostać tutaj */
-  position: relative;
+  counter-increment: instructions-counter;
   padding-left: 2.5rem;
+  position: relative;
 }
 
 .instructions_container__list__item::before {
@@ -209,7 +207,6 @@ main > * + * {
   content: counter(instructions-counter) ".";
   font-weight: bold;
   color: var(--color-brown-800);
-  /* Zauważ, że usunęliśmy stąd margin-right! */
 }
 
 .instructions_container__list__item b {
@@ -239,11 +236,7 @@ main > * + * {
 
 .nutrition_container__list__term,
 .nutrition_container__list__def {
-  /* width: 50%; */
   flex: 1 0 0;
-}
-
-.nutrition_container__list__term {
 }
 
 .nutrition_container__list__def {
@@ -273,4 +266,27 @@ main > * + * {
 
 .attribution a {
   color: var(--color-rose-800);
+}
+
+@media (max-width: 500px) {
+  body {
+    padding: 0;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .image {
+    border-radius: 0;
+    height: 171px;
+  }
+  .recipe_container {
+    padding: var(--sp-500) var(--sp-400);
+  }
+
+  .title {
+    margin-top: 0;
+    font-size: 2.25rem;
+  }
 }
