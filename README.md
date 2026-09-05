@@ -152,9 +152,6 @@ main {
 
 - centering table-like element using `flex 1 0 0`(flex-grow, flex-shrink, flex-start)
 
-
-![alt text](image.png)
-
 ### Useful resources
 
 - [b html tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/b) - Details about used by me `<b>` html tag.
