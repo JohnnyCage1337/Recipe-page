@@ -58,13 +58,16 @@ img {
 body {
   background-color: var(--color-stone-100);
   color: var(--color-stone-600);
-
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--sp-500);
 
   font: var(--text-present-4);
+
+  overflow-y: auto;
   padding: var(--sp-1600) var(--sp-600);
 }
 
@@ -74,7 +77,6 @@ main {
   background-color: var(--color-white);
   padding: var(--sp-500);
   border-radius: var(--sp-300);
-  flex-grow: 1;
 }
 
 .recipe_container > * + * {
@@ -147,7 +149,7 @@ main {
 
 .preparation_container__list__row {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
 
 .ingredients_container__heading,
@@ -261,7 +263,7 @@ main {
 
 .attribution {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 0.6875rem;
 }
 
 .attribution a {
